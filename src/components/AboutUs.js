@@ -3,6 +3,7 @@ import React ,{useState} from "react";
 // import { useParams } from "react-router-dom";
 import { students } from '../dummyData/studentsData';
 import { Outlet } from "react-router-dom";
+import TextEditor from "./TextEditor";
 // this keyword use  to get url all details
 // import { useSearchParams } from "react-router-dom";
 
@@ -94,6 +95,7 @@ export default function AboutUs() {
         <p>here child comonent will render</p>
         <hr />
         <Outlet />
+        <TextEditor/>
       </div>
     </div>
   );

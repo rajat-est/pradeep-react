@@ -1,16 +1,18 @@
 import React from "react";
-// { useEffect, useState } 
+// { useEffect, useState }
+import { useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import ToggleButton from "./ToggleBtn";
+import { ToggleContext } from './ToggleContext';
+
 
 export default function Navbar(props) {
-  // const [isChecked,setIsChecked] = useState(true);
-  // console.log(isChecked)
-  const colorTheme = (e)=>{
-    document.body.style.backgroundColor= e.target.dataset.color;
-  }
+  const {isToggled} = useContext(ToggleContext);
+  
+ 
   return (
-    <header className={`main_header ${props.mode}`}>
+    <header className={`main_header ${props.mode} ${isToggled && 'dark'}`}>
       <div className="container">
         <nav className="nav_bar">
           <ul className="d-flex">
@@ -23,21 +25,31 @@ export default function Navbar(props) {
             <li>
               <Link to="gallery">{props.gallery}</Link>
             </li>
+            <li>
+              <Link to="todo">{props.todo}</Link>
+            </li>
           </ul>
         </nav>
-          <p className="color_theme">
-             <span onClick={colorTheme} data-color="red"></span>
-             <span onClick={colorTheme} data-color="blue"></span>
-             <span onClick={colorTheme} data-color="black"></span>
-             <span onClick={colorTheme} data-color="gray"></span>
-             <span onClick={colorTheme} data-color="lightblue"></span>
-             <span onClick={colorTheme} data-color="lightcyan"></span>
-          </p>
+        {/* <p className="color_theme">
+          <span onClick={colorTheme} data-color="red"></span>
+          <span onClick={colorTheme} data-color="blue"></span>
+          <span onClick={colorTheme} data-color="black"></span>
+          <span onClick={colorTheme} data-color="gray"></span>
+          <span onClick={colorTheme} data-color="lightblue"></span>
+          <span onClick={colorTheme} data-color="lightcyan"></span>
+          <span onClick={colorTheme} data-color="lightcyan"></span>
+          <span onClick={colorTheme} data-color="lightcyan"></span>
+        </p> */}
         {/* <div className="toggle_container">
           <input type="checkbox" checked={isChecked}  onChange={(e)=>{setIsChecked(e.target.checked)}}
           id="toggle_btn" />
           <label htmlFor="toggle_btn">Enable DarkMode</label>
         </div> */}
+        <div className="toggle_container">
+        
+            <ToggleButton />
+        
+        </div>
       </div>
     </header>
   );
@@ -52,5 +64,6 @@ Navbar.defaultProps = {
   home: "home",
   about: "about",
   contact: "contact",
-  gallery:"Gallery"
+  gallery: "Gallery",
+  todo: "Todo",
 };

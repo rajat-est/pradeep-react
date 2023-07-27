@@ -6,11 +6,13 @@ import { lazy } from "react";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ErrorElement from "./ErrorElement";
 import Gallery from "./Gallery";
+import Todo from "./Todo";
+import { ToggleProvider } from "./ToggleContext";
+import TextEditor from "./TextEditor";
 const LazyAboutUs = lazy(() => import("./AboutUs"));
 
 export default function Route() {
   const [mode, setmode] = useState("light");
-
   const Applayout = () => {
     return (
       <>
@@ -27,11 +29,16 @@ export default function Route() {
       children: [
         {
           path: "",
-          element: <TextForm title="Enter your text below" mode={mode} />,
+          element:<TextEditor/>
+          // element: <TextForm title="Enter your text below" mode={mode} />,
         },
         {
           path: "gallery",
           element: <Gallery/>,
+        },
+        {
+          path: "todo",
+          element:<Todo/>,
         },
         {
           path: "about",
@@ -49,5 +56,7 @@ export default function Route() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return( 
+    <ToggleProvider> <RouterProvider router={router} /></ToggleProvider>
+ );
 }
