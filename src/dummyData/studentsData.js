@@ -21,6 +21,7 @@ import beach2 from "../img/beach2.jpeg"
 import beach3 from "../img/beach3.jpeg"
 import beach4 from "../img/beach4.jpeg"
 import beach5 from "../img/beach5.jpeg"
+import Gallery from "../components/Gallery"
 export const students = [
   {
     id: 1,
@@ -233,7 +234,7 @@ export const images = [
   },
   {
     id: 25,
-    src:beach5,
+    src:'beach5',
     alt: "beach5",
     catid: "beaches",
     desc:"A beach is a narrow strip of land separating a body of water from inland areas"
@@ -241,3 +242,177 @@ export const images = [
   },
   
 ];
+export const GalleryTwoTab = [
+  {
+    id: 1,
+    btnName: "All",
+    catid: "all",
+  },
+  {
+    id: 2,
+    btnName: "Electric",
+    catid: "electric",
+  },
+  {
+    id: 3,
+    btnName: "HOME ART LIGHT",
+    catid: "HOME ART LIGHT",
+  },
+  {
+    id: 4,
+    btnName: "D J light",
+    catid: "D J light",
+  },
+  {
+    id: 5,
+    btnName: "Cafe light",
+    catid: "Cafe light",
+  }
+]
+
+export const GalleryTwoData = [
+  {
+    id: 1,
+    src:'https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+    alt: "electric",
+    catid: "electric",
+    imgName:"Workspace elétrica",
+    tag:'TAG',
+  },
+  {
+    id: 2,
+    src:'https://images.unsplash.com/photo-1680876268567-9559d763e84f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=436&q=80',
+    alt: "electric",
+    catid: "electric",
+    imgName:"Dark and red",
+    tag:'TAG',
+  },
+  {
+    id: 3,
+    src:'https://images.unsplash.com/photo-1619722087489-f0b1a6fdbc6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+    alt: "electric",
+    catid: "electric",
+    imgName:"Organização e grids",
+    tag:'TAG',
+  },
+  {
+    id: 4,
+    src:'https://images.unsplash.com/photo-1595675024853-0f3ec9098ac7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80',
+    alt: "electric",
+    catid: "electric",
+    imgName:"Colméia",
+    tag:'TAG',
+  },
+  {
+    id: 5,
+    src:'https://images.unsplash.com/photo-1534029731425-0d646dd67df3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=386&q=80',
+    alt: "electric",
+    catid: "electric",
+    imgName:"Setup de escritor",
+    tag:'TAG',
+  },
+  {
+    id: 6,
+    src:'https://images.unsplash.com/photo-1507668077129-56e32842fceb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+    alt: "electric",
+    catid: "electric",
+    imgName:"Ergonomia e cores",
+    tag:'TAG',
+  },
+  {
+    id: 7,
+    src:'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=842&q=80',
+    alt: "electric",
+    catid: "electric",
+    imgName:"Show de luzes",
+    tag:'TAG',
+  },
+  {
+    id: 8,
+    src:'https://images.unsplash.com/photo-1517518295033-d5ab8ca078cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80',
+    alt: "electric",
+    catid: "electric",
+    imgName:"Deep purple",
+    tag:'TAG',
+  },
+  {
+    id: 9,
+    src:'https://images.unsplash.com/photo-1559571170-405c5c9dd0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+    alt: "electric",
+    catid: "electric",
+    imgName:"Multi-Screen",
+    tag:'TAG',
+  },
+  {
+    id: 10,
+    src:'https://plus.unsplash.com/premium_photo-1663090727622-1c7f0dbd983e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+    alt: "HOME ART LIGHT",
+    catid: "HOME ART LIGHT",
+    imgName:"Home Light philips",
+    tag:'TAG',
+  },
+  {
+    id: 11,
+    src:'https://images.unsplash.com/photo-1518706016428-64215811367b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+    alt: "HOME ART LIGHT",
+    catid: "HOME ART LIGHT",
+    imgName:"Home Light Bajaj",
+    tag:'TAG',
+  },
+  {
+    id: 12,
+    src:'https://images.unsplash.com/photo-1516646085441-e1719f13aa3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=773&q=80',
+    alt: "HOME ART LIGHT",
+    catid: "HOME ART LIGHT",
+    imgName:"Home Light Havells",
+    tag:'TAG',
+  },
+  {
+    id: 13,
+    src:'https://images-cdn.ubuy.co.in/633ff3926d864a53f921e093-party-lights-dj-disco-lights-sound.jpg',
+    alt: "D J light",
+    catid: "D J light",
+    imgName:"D J light  Havells",
+    tag:'TAG',
+  },
+  {
+    id: 14,
+    src:'https://5.imimg.com/data5/SELLER/Default/2020/8/BJ/JZ/TC/11733908/aluminium-led-dj-lighting-500x500.jpg',
+    alt: "D J light",
+    catid: "D J light",
+    imgName:"Aluminium LED DJ Lighting",
+    tag:'TAG',
+  },
+  {
+    id: 15,
+    src:'https://img2.exportersindia.com/product_images/bc-full/2019/6/4630594/dj-light-1559810547-4939240.jpeg',
+    alt: "D J light",
+    catid: "D J light",
+    imgName:"stage light",
+    tag:'TAG',
+  },
+  {
+    id: 16,
+    src:'https://m.media-amazon.com/images/I/61SdjhiWVxL._SX466_.jpg',
+    alt: "D J light",
+    catid: "D J light",
+    imgName:"decoration light",
+    tag:'TAG',
+  },
+  {
+    id: 17,
+    src:'https://5.imimg.com/data5/SELLER/Default/2022/7/FX/CH/JE/24540464/cafe-interior-design-service.jpg',
+    alt: "Cafe light",
+    catid: "Cafe light",
+    imgName:"decoration Cafe light",
+    tag:'TAG',
+  },
+  {
+    id: 18,
+    src:'https://www.krion.com/uploads/tmp/paredes_de_cafeteria_selva.jpg',
+    alt: "Cafe light",
+    catid: "Cafe light",
+    imgName:"decoration Cafe light",
+    tag:'TAG',
+  },
+]

@@ -4,6 +4,11 @@ import React ,{useState} from "react";
 import { students } from '../dummyData/studentsData';
 import { Outlet } from "react-router-dom";
 import TextEditor from "./TextEditor";
+import { Link, Title } from "../style/button";
+import { Bigbutton } from "../style/button";
+import{GlobalStyle} from "../style/button"
+import { Heading ,RereversedButton} from "../style/button";
+
 // this keyword use  to get url all details
 // import { useSearchParams } from "react-router-dom";
 
@@ -37,8 +42,34 @@ export default function AboutUs() {
   }
   return (
     <div>
+      <GlobalStyle/>
+      {/* as keyword change html tag */}
+        <Title as ="RereversedButton">
+          click me
+        </Title>
+        <Title primary>
+          click me
+        </Title>
+        <Bigbutton primary> I am Pink</Bigbutton>
+        <Heading color={'#800080'}>
+          i am heading
+          <ul>
+            <li>
+              Rohit 
+            </li>
+            <li>
+              Aman 
+            </li>
+            <li>
+              <Link href="https://styled-components.com/docs/basics#styling-any-component">go to google</Link> 
+            </li>
+          </ul>
+          <div></div>
+        </Heading>
       {/* <p>id is : {id}</p> */}
+      <Heading color="yellow" mobileColor="green">New Pradeep</Heading>
       {
+        
         students.map((item)=>{
           return(
             <div key={item.id}>
@@ -94,9 +125,9 @@ export default function AboutUs() {
       <div style={{borderWidth:"2px",padding:"10px",margin:"10px",borderColor:"black"}}>
         <p>here child comonent will render</p>
         <hr />
+      
         <Outlet />
-        <TextEditor/>
-      </div>
+     </div>
     </div>
   );
 }

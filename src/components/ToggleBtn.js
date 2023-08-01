@@ -23,8 +23,8 @@ const ToggleButton = () => {
  
   return (
     <>
-      <button onClick={toggle} className={isToggled ? "dark" : ""}>
-        {isToggled ? "ON" : "OFF"}
+      <button onClick={toggle} className={isToggled ? "light" : "dark"}>
+        {isToggled ? "Light Mode" : "Dark Mode"}
       </button>
       {/* <p ref={refP}>use ref example</p>
       <button onClick={changeColor}>change color</button>

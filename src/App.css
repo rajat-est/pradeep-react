@@ -5,27 +5,69 @@
   padding: 0;
   box-sizing: border-box;
 }
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo img {
+  width: 150px;
+}
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.profile img {
+  width: 50px;
+}
+.nav_bar {
+  display: flex;
+  align-items: center;
+}
 .d-flex {
   display: flex;
   justify-content: center;
 }
+.main_header.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  animation: slideDown 0.35s ease-out;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 .main_header {
-  background: blue;
+  background: #fff;
+  box-shadow: 0px 1px 11px 7px #ccc;
 }
 .main_header ul li {
   list-style: none;
 }
+.textWhite {
+  color: #fff !important;
+}
+.toggle_container button {
+  border: 1px solid transparent;
+  padding: 5px;
+  border-radius: 5px;
+}
 .main_header a {
-  color: #fff;
+  color: #000000;
   padding: 1rem 1.5rem;
   display: block;
   text-decoration: none;
 }
 
-.main_header a:hover {
-  color: #000;
-  transition: all 0.3s ease-in;
-}
 .form_textarea label {
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -80,7 +122,7 @@ section h3 i {
   margin-top: 1rem;
 }
 .light {
-  background-color: #ccc;
+  background-color: #fff;
   color: #000;
 }
 .dark {
@@ -166,6 +208,9 @@ header .toggle_container label {
   background-color: lightcyan;
 }
 /* new Project    image Gallery */
+.toggle_container p {
+  margin-left: 10px;
+}
 .btnTab {
   background-color: #060622;
   color: #fff;
@@ -332,7 +377,7 @@ header .toggle_container label {
   border: none;
   padding: 3px 6px;
 }
-.menuTextEditor li button:hover{
+.menuTextEditor li button:hover {
   background-color: #ddd;
 }
 .h1 {
@@ -400,7 +445,117 @@ header .toggle_container label {
   text-align: center;
 }
 @media screen and (max-width: 575px) {
-  .textEditorContainer .title{
-     font-size: 2rem;
+  .textEditorContainer .title {
+    font-size: 2rem;
   }
+}
+
+.errors {
+  color: #ff0000;
+}
+
+.main_header .mobile_menu_icon {
+  display: none;
+}
+
+.main_header span {
+  background: #000;
+  border-radius: 10px;
+  height: 4px;
+  margin: 4px 0;
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+.main_header span:nth-of-type(1) {
+  width: 50%;
+}
+
+.main_header span:nth-of-type(2) {
+  width: 100%;
+}
+
+.main_header span:nth-of-type(3) {
+  width: 75%;
+}
+
+.main_header input[type="checkbox"] {
+  display: none;
+}
+.main_header label {
+  display: flex;
+  flex-direction: column;
+  width: 44px;
+  cursor: pointer;
+  position: absolute;
+  top: 13px;
+  right: 5px;
+}
+
+.main_header input[type="checkbox"]:checked ~ span:nth-of-type(1) {
+  transform: rotate(45deg) translate(3px, 0px);
+  transform-origin: bottom;
+}
+
+.main_header input[type="checkbox"]:checked ~ span:nth-of-type(2) {
+  transform-origin: top;
+  transform: rotatez(-45deg);
+}
+
+.main_header input[type="checkbox"]:checked ~ span:nth-of-type(3) {
+  transform: translate(20px, -5px) rotate(45deg);
+  transform-origin: bottom;
+  width: 50%;
+}
+
+/* // mobile menu media */
+@media (max-width: 991px) {
+  .main_header .mobile-nav {
+    transform: translate(0);
+    transition: all 0.7s ease-in-out;
+    top: 64px;
+    padding-bottom: 35px;
   }
+.nav_bar{
+  background-color: #fff;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-105%);
+    transition: all .7s ease-in-out;
+    width: 100%;
+    z-index: 2;
+}
+.nav_bar,.nav_bar ul {
+  flex-direction: column;
+}
+  .main_header label.bar {
+    position: absolute;
+    top: 0px;
+    right: 17px;
+  }
+  .main_header .mobile_menu_icon {
+    display: flex;
+  }
+}
+@media (max-width: 575px) {
+  header .profile {
+   flex-direction: column; 
+}
+.main_header .mobile-nav {
+  top: 76px;
+}
+}
+@media (max-width: 575px) {
+  header .profile {
+    display: none;
+  }
+  .main_header .mobile-nav {
+    top: 70px;
+  }
+  header .container {
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-top: 5px;
+    
+}
+}

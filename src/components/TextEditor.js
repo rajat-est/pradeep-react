@@ -167,7 +167,7 @@ const TextEditor = () => {
                   onClick={() => setItalic(!italic)}
                   className={italic ? "active" : ""}
                 >
-                  <i class="fa-solid fa-italic"></i>
+                  <i className="fa-solid fa-italic"></i>
                 </button>
               </li>
               <li>
@@ -175,16 +175,16 @@ const TextEditor = () => {
                   onClick={() => setBlod(!bold)}
                   className={bold ? "active" : ""}
                 >
-                  <i class="fa-solid fa-bold"></i>
+                  <i className="fa-solid fa-bold"></i>
                 </button>
               </li>
               <li>
                 <button onClick={handleCopy} className={copy ? "active" : ""}>
-                  <i class="fa-solid fa-copy"></i>
+                  <i className="fa-solid fa-copy"></i>
                 </button>
               </li>
               <li>
-                <button onClick={handleDownloadClick}><i class="fa-solid fa-download"></i></button>
+                <button onClick={handleDownloadClick}><i className="fa-solid fa-download"></i></button>
               </li>
               <li>
                 <button onClick={convertUppercase} ><img src={uppercase} style={{
@@ -197,15 +197,15 @@ const TextEditor = () => {
                 }} alt="uppercase" /></button>
               </li>
               <li>
-                <button className={align==='left'? 'active':"" } onClick={()=>setAlign('left')}><i class="fa-solid fa-align-left"></i></button>
+                <button className={align==='left'? 'active':"" } onClick={()=>setAlign('left')}><i className="fa-solid fa-align-left"></i></button>
               </li>
               <li>
-                <button className={align==='right'? 'active':"" } onClick={()=>setAlign('right')}><i class="fa-solid fa-align-right"></i></button>
+                <button className={align==='right'? 'active':"" } onClick={()=>setAlign('right')}><i className="fa-solid fa-align-right"></i></button>
               </li>
-              <li><button className={align==='justify'? 'active':"" } onClick={()=>setAlign('justify')}><i class="fa-solid fa-align-justify"></i></button></li>
-              <li><button className={align==='center'? 'active':"" } onClick={()=>setAlign('center')}><i class="fa-solid fa-align-center"></i></button></li>
-              <li><button onClick={handlespace}><i class="fa-solid fa-shuttle-space"></i></button></li>
-              <li><button onClick={()=> setText("")}><i class="fa-solid fa-trash"></i></button></li>
+              <li><button className={align==='justify'? 'active':"" } onClick={()=>setAlign('justify')}><i className="fa-solid fa-align-justify"></i></button></li>
+              <li><button className={align==='center'? 'active':"" } onClick={()=>setAlign('center')}><i className="fa-solid fa-align-center"></i></button></li>
+              <li><button onClick={handlespace}><i className="fa-solid fa-shuttle-space"></i></button></li>
+              <li><button onClick={()=> setText("")}><i className="fa-solid fa-trash"></i></button></li>
             </ul>
           </div>
           <div className="bodyTextEditor">

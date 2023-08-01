@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense} from "react";
 import Navbar from "./Navbar";
 import TextForm from "./TextForm";
 import { useState } from "react";
@@ -12,11 +12,11 @@ import TextEditor from "./TextEditor";
 const LazyAboutUs = lazy(() => import("./AboutUs"));
 
 export default function Route() {
-  const [mode, setmode] = useState("light");
+  const [searchData, setSearchData] = useState("kncjlsabcas");
   const Applayout = () => {
     return (
       <>
-        <Navbar mode={mode} />
+        <Navbar setSearchData = {setSearchData} searchData = {searchData}  />
         <Outlet />
       </>
     );
@@ -24,7 +24,7 @@ export default function Route() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Applayout />,
+      element: <Applayout/>,
       errorElement: <ErrorElement />,
       children: [
         {
@@ -34,7 +34,7 @@ export default function Route() {
         },
         {
           path: "gallery",
-          element: <Gallery/>,
+          element: <Gallery  searchData={searchData}/>,
         },
         {
           path: "todo",
@@ -44,8 +44,7 @@ export default function Route() {
           path: "about",
           element: (
             <Suspense fallback={<p>Loading....</p>}>
-              {" "}
-              <LazyAboutUs />{" "}
+              <LazyAboutUs />
             </Suspense>
           ),
           children: [{ path: "pradeep", element: <p>this is about pradeep</p> },{path:"abc",element:<p>this is about abc</p>, 

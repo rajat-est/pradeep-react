@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { tabButons } from "../dummyData/studentsData";
+import { tabButons,GalleryTwoTab } from "../dummyData/studentsData";
 import GalleryImages from "./GalleryImages";
-import { buildTimeValue } from "@testing-library/user-event/dist/utils";
-import useOnline from "./CheckOnline";
+import {ButtonTab} from "../style/GalleryStyle"
+import GalleryTwo from "./GalleryTwo";
+export default function Gallery({searchData}) {
+  const [catagory, setCatagory] = useState(tabButons[0]["catid"]);
+  const [catagoryTwo, setCatagoryTwo] = useState(GalleryTwoTab[0]["catid"]);
 
-export default function Gallery() {
-  let [catagory, setCatagory] = useState(tabButons[0]["catid"]);
-  let [searchbtn, setSearchbtn] = useState("");
-  const isOnline = useOnline();
+  const [searchbtn, setSearchbtn] = useState("");
   const selectCategory = (catagory) => {
     setCatagory(catagory);
   };
@@ -71,9 +71,17 @@ export default function Gallery() {
         </div>
         <GalleryImages catagory={catagory} />
       </div>
-      <div className="onlineEffect">
-       <p>{isOnline? "online": "offline"}</p>
+      <div style={{
+        textAlign:"center"
+      }}>
+         {GalleryTwoTab.map((value)=>{
+          return(
+           <ButtonTab key={value.id}  color= {catagoryTwo === value.catid ? "#fff":""}  onClick={()=>setCatagoryTwo(value.catid)} >{value.btnName}</ButtonTab>
+          );
+         })}
       </div>
+        <GalleryTwo catagoryTwo = {catagoryTwo} searchData={searchData}/>
+      
     </>
   );
 }

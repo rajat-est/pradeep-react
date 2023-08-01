@@ -1,10 +1,14 @@
+import { ThemeProvider } from "styled-components";
 import "./App.css";
 import Route from "./components/Route";
+import { Theme } from "./style/button";
 function App() {
   return (
-    <>
-      <Route />
-    </>
+    <ThemeProvider theme={Theme} >
+      <>
+        <Route />
+      </>
+    </ThemeProvider>
   );
 }
 export default App;
