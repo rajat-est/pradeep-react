@@ -6,6 +6,7 @@ import { styled } from "styled-components";
    text-align:${(props)=> props.align || "center"} ;
    text-transform: uppercase;
    letter-spacing: 3px;
+   margin: 2rem 0;
  `
 export const ButtonTab = styled.button`
    background-color: ${(props)=> props.color || '#000'};
@@ -19,7 +20,17 @@ export const ButtonTab = styled.button`
 export const ImageWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
+   background-color: #F5F5F5;
+   padding: 89px 112px 64px 115px;
+   @media (max-width: 991px) {
+    padding: 50px;
+
+   }
+   @media (max-width: 767px) {
+    padding: 20px;
+
+   }
   .descriptionImg{
      padding: 22.69px;
   }
@@ -32,14 +43,16 @@ export const ImgContainer = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 7.564px 7.564px 0 0;
   }
 `;
 export const  Main = styled.div `
-   width: ${(props) => (props.width ? props.width : "calc(33.33% - 7px)")};
+   width: ${(props) => (props.width ? props.width : "calc(33.33% - 14px)")};
    background-color: #fff;
-   padding: 20px;
+   border-radius: 7.564px;
+
    @media (max-width:767px) {
-     width:calc(50% - 7px) ;
+     width:calc(50% - 14px) ;
    }
    @media (max-width:360px) {
      width:100% ;

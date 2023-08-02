@@ -1,6 +1,5 @@
-import React, { Suspense} from "react";
+import React, { Suspense } from "react";
 import Navbar from "./Navbar";
-import TextForm from "./TextForm";
 import { useState } from "react";
 import { lazy } from "react";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -9,36 +8,44 @@ import Gallery from "./Gallery";
 import Todo from "./Todo";
 import { ToggleProvider } from "./ToggleContext";
 import TextEditor from "./TextEditor";
+import Footer from "./Footer";
+import  GalleryTwo  from "./GalleryTwo";
+import { AppProvider } from "./AppContext";
 const LazyAboutUs = lazy(() => import("./AboutUs"));
-
 export default function Route() {
-  const [searchData, setSearchData] = useState("kncjlsabcas");
   const Applayout = () => {
     return (
       <>
-        <Navbar setSearchData = {setSearchData} searchData = {searchData}  />
+        <Navbar/>
         <Outlet />
+        <Footer />
       </>
     );
   };
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Applayout/>,
+      element: <Applayout />,
       errorElement: <ErrorElement />,
       children: [
         {
           path: "",
-          element:<TextEditor/>
+          element: <TextEditor />,
           // element: <TextForm title="Enter your text below" mode={mode} />,
         },
         {
           path: "gallery",
-          element: <Gallery  searchData={searchData}/>,
+          element: <Gallery/>,
+        },
+        {
+          path: "galleryTwo",
+          element:<GalleryTwo/>
+          // element:<GalleryTwo catagoryTwo = {catagoryTwo} searchData={searchData}/>
+          ,
         },
         {
           path: "todo",
-          element:<Todo/>,
+          element: <Todo />,
         },
         {
           path: "about",
@@ -47,15 +54,22 @@ export default function Route() {
               <LazyAboutUs />
             </Suspense>
           ),
-          children: [{ path: "pradeep", element: <p>this is about pradeep</p> },{path:"abc",element:<p>this is about abc</p>, 
-        },{path:"indore",element:<p>this is about indore</p>, 
-    }],
+          children: [
+            { path: "pradeep", element: <p>this is about pradeep</p> },
+            { path: "abc", element: <p>this is about abc</p> },
+            { path: "indore", element: <p>this is about indore</p> },
+          ],
         },
       ],
     },
   ]);
 
-  return( 
-    <ToggleProvider> <RouterProvider router={router} /></ToggleProvider>
- );
+  return (
+    <ToggleProvider>
+      {" "}
+      <AppProvider>
+        <RouterProvider router={router} />
+      </AppProvider>
+    </ToggleProvider>
+  );
 }

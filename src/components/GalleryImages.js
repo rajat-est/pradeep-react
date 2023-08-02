@@ -13,7 +13,9 @@ const SingleImage = ({ alt, src ,desc}) => {
 };
 
 export default function GalleryImages(props) {
-  let filteredImages = images.filter((data) => data.catid.toLowerCase().includes(props.catagory.toLowerCase()) || data.desc.toLowerCase().includes(props.catagory.toLowerCase()));
+  let filteredImages = images.filter((data) =>{
+    return data.catid.toLowerCase().includes(props.catagory.toLowerCase()) || data.desc.toLowerCase().includes(props.catagory.toLowerCase())
+  })
   
   return (
     <>

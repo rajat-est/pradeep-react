@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { tabButons,GalleryTwoTab } from "../dummyData/studentsData";
+import { tabButons } from "../dummyData/studentsData";
 import GalleryImages from "./GalleryImages";
-import {ButtonTab} from "../style/GalleryStyle"
-import GalleryTwo from "./GalleryTwo";
-export default function Gallery({searchData}) {
+export default function Gallery() {
   const [catagory, setCatagory] = useState(tabButons[0]["catid"]);
-  const [catagoryTwo, setCatagoryTwo] = useState(GalleryTwoTab[0]["catid"]);
 
   const [searchbtn, setSearchbtn] = useState("");
   const selectCategory = (catagory) => {
@@ -18,7 +15,6 @@ export default function Gallery({searchData}) {
     } else {
       setCatagory(tabButons[0]["catid"]);
       setSearchbtn(searchValue.target.value);
-
     }
   };
   return (
@@ -70,18 +66,7 @@ export default function Gallery({searchData}) {
           })}
         </div>
         <GalleryImages catagory={catagory} />
-      </div>
-      <div style={{
-        textAlign:"center"
-      }}>
-         {GalleryTwoTab.map((value)=>{
-          return(
-           <ButtonTab key={value.id}  color= {catagoryTwo === value.catid ? "#fff":""}  onClick={()=>setCatagoryTwo(value.catid)} >{value.btnName}</ButtonTab>
-          );
-         })}
-      </div>
-        <GalleryTwo catagoryTwo = {catagoryTwo} searchData={searchData}/>
-      
+      </div>      
     </>
   );
 }

@@ -21,7 +21,6 @@ import beach2 from "../img/beach2.jpeg"
 import beach3 from "../img/beach3.jpeg"
 import beach4 from "../img/beach4.jpeg"
 import beach5 from "../img/beach5.jpeg"
-import Gallery from "../components/Gallery"
 export const students = [
   {
     id: 1,
@@ -234,7 +233,7 @@ export const images = [
   },
   {
     id: 25,
-    src:'beach5',
+    src:beach5,
     alt: "beach5",
     catid: "beaches",
     desc:"A beach is a narrow strip of land separating a body of water from inland areas"
@@ -277,7 +276,7 @@ export const GalleryTwoData = [
     alt: "electric",
     catid: "electric",
     imgName:"Workspace elétrica",
-    tag:'TAG',
+    tag:'Electric',
   },
   {
     id: 2,
@@ -285,7 +284,7 @@ export const GalleryTwoData = [
     alt: "electric",
     catid: "electric",
     imgName:"Dark and red",
-    tag:'TAG',
+    tag:'Electric',
   },
   {
     id: 3,
@@ -293,7 +292,7 @@ export const GalleryTwoData = [
     alt: "electric",
     catid: "electric",
     imgName:"Organização e grids",
-    tag:'TAG',
+    tag:'Electric',
   },
   {
     id: 4,
@@ -301,7 +300,7 @@ export const GalleryTwoData = [
     alt: "electric",
     catid: "electric",
     imgName:"Colméia",
-    tag:'TAG',
+    tag:'Electric',
   },
   {
     id: 5,
@@ -309,7 +308,7 @@ export const GalleryTwoData = [
     alt: "electric",
     catid: "electric",
     imgName:"Setup de escritor",
-    tag:'TAG',
+    tag:'Electric',
   },
   {
     id: 6,
@@ -317,7 +316,7 @@ export const GalleryTwoData = [
     alt: "electric",
     catid: "electric",
     imgName:"Ergonomia e cores",
-    tag:'TAG',
+    tag:'Electric',
   },
   {
     id: 7,
@@ -325,7 +324,7 @@ export const GalleryTwoData = [
     alt: "electric",
     catid: "electric",
     imgName:"Show de luzes",
-    tag:'TAG',
+    tag:'Electric',
   },
   {
     id: 8,
@@ -333,7 +332,7 @@ export const GalleryTwoData = [
     alt: "electric",
     catid: "electric",
     imgName:"Deep purple",
-    tag:'TAG',
+    tag:'Electric',
   },
   {
     id: 9,
@@ -341,7 +340,7 @@ export const GalleryTwoData = [
     alt: "electric",
     catid: "electric",
     imgName:"Multi-Screen",
-    tag:'TAG',
+    tag:'Electric',
   },
   {
     id: 10,
@@ -349,7 +348,7 @@ export const GalleryTwoData = [
     alt: "HOME ART LIGHT",
     catid: "HOME ART LIGHT",
     imgName:"Home Light philips",
-    tag:'TAG',
+    tag:'HOME ART LIGHT',
   },
   {
     id: 11,
@@ -357,7 +356,7 @@ export const GalleryTwoData = [
     alt: "HOME ART LIGHT",
     catid: "HOME ART LIGHT",
     imgName:"Home Light Bajaj",
-    tag:'TAG',
+    tag:'HOME ART LIGHT',
   },
   {
     id: 12,
@@ -365,7 +364,7 @@ export const GalleryTwoData = [
     alt: "HOME ART LIGHT",
     catid: "HOME ART LIGHT",
     imgName:"Home Light Havells",
-    tag:'TAG',
+    tag:'HOME ART LIGHT',
   },
   {
     id: 13,
@@ -373,7 +372,7 @@ export const GalleryTwoData = [
     alt: "D J light",
     catid: "D J light",
     imgName:"D J light  Havells",
-    tag:'TAG',
+    tag:'D J light',
   },
   {
     id: 14,
@@ -381,7 +380,7 @@ export const GalleryTwoData = [
     alt: "D J light",
     catid: "D J light",
     imgName:"Aluminium LED DJ Lighting",
-    tag:'TAG',
+    tag:'D J light',
   },
   {
     id: 15,
@@ -389,7 +388,7 @@ export const GalleryTwoData = [
     alt: "D J light",
     catid: "D J light",
     imgName:"stage light",
-    tag:'TAG',
+    tag:'D J light',
   },
   {
     id: 16,
@@ -397,7 +396,7 @@ export const GalleryTwoData = [
     alt: "D J light",
     catid: "D J light",
     imgName:"decoration light",
-    tag:'TAG',
+    tag:'D J light',
   },
   {
     id: 17,
@@ -405,7 +404,7 @@ export const GalleryTwoData = [
     alt: "Cafe light",
     catid: "Cafe light",
     imgName:"decoration Cafe light",
-    tag:'TAG',
+    tag:'Cafe light',
   },
   {
     id: 18,
@@ -413,6 +412,6 @@ export const GalleryTwoData = [
     alt: "Cafe light",
     catid: "Cafe light",
     imgName:"decoration Cafe light",
-    tag:'TAG',
+    tag:'Cafe light',
   },
 ]

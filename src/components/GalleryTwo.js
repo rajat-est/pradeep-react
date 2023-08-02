@@ -1,25 +1,53 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   ButtonTag,
   Hadding,
   ImageWrapper,
   ImgContainer,
   Main,
-} from "../style/GalleryStyle";
-import { GalleryTwoData } from "../dummyData/studentsData";
-
+  ButtonTab
+} from "../style/GalleryStyle"
+import { useGlobalContext } from "./AppContext";
+import { GalleryTwoData,GalleryTwoTab } from "../dummyData/studentsData";
+const Buttons = (props) => {
+  return (
+    <div>
+ <div style={{
+        textAlign:"center",
+        marginTop:'3rem'
+      }}>
+         {GalleryTwoTab.map((value)=>{
+          return(
+           <ButtonTab key={value.id}  color= {props.catagoryTwo === value.catid ? "#fff":""}  onClick={()=>props.setCatagoryTwo(value.catid)} >{value.btnName}</ButtonTab>
+          );
+         })}
+      </div>
+    </div>
+  )
+}
 function GalleryTwo(props) {
-  let fillterCatagoryTwo = GalleryTwoData;
-  if (props.catagoryTwo != "all" || props.searchData) {
-     fillterCatagoryTwo = GalleryTwoData.filter((value)=>{
-     return( value.catid.toLowerCase() === props.catagoryTwo.toLowerCase() || value.imgName.toLowerCase() === props.searchData.toLowerCase() )
-   });
-  }
-  return(
+  const {searchData } = useGlobalContext()
+  console.log(searchData);
+  const [catagoryTwo, setCatagoryTwo] = useState(GalleryTwoTab[0]["catid"]);
+  const filterCatagoryTwo = catagoryTwo !=='all' || searchData
+  ? GalleryTwoData.filter((value) => {
+      return (
+        value.catid.toLowerCase() === catagoryTwo.toLowerCase() || value.imgName.toLowerCase() === searchData.toLowerCase()
+      );
+    })
+  : GalleryTwoData;
+  return (
     <>
-    <Hadding fontSize="50px">{fillterCatagoryTwo.length === 0  ?<span className="errors">NO IMAGE FOUND</span>:props.catagoryTwo + " Images" }</Hadding>
+     <Buttons setCatagoryTwo = {setCatagoryTwo} catagoryTwo={catagoryTwo} />
+      <Hadding fontSize="50px">
+        {filterCatagoryTwo.length === 0 ? (
+          <span className="errors">NO IMAGE FOUND</span>
+        ) : (
+          catagoryTwo + " Images"
+        )}
+      </Hadding>
       <ImageWrapper>
-        {fillterCatagoryTwo.map((value) => {
+        {filterCatagoryTwo.map((value) => {
           return (
             <Main key={value.id}>
               <ImgContainer>
