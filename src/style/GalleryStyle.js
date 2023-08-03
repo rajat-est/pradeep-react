@@ -65,4 +65,5 @@ export const ButtonTag = styled.button `
    padding: 7.564px;
    border: 1px solid transparent;
    margin-top: 12.29px;
+   cursor:pointer;
  `;
