@@ -454,6 +454,7 @@ header .toggle_container label {
   color: #ff0000;
 }
 
+/* @@@@@@@@@@@@@@@@@@@ mobile menu css @@@@@@@@@@@@@@@@@@@ */
 .main_header .mobile_menu_icon {
   display: none;
 }
@@ -558,4 +559,9 @@ header .toggle_container label {
     padding-top: 5px;
     
 }
+}
+
+.galleryTwo{
+   background-color: #F5F5F5;
+   padding-top: 3rem;
 }
