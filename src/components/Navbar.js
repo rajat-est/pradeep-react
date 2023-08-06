@@ -27,16 +27,19 @@ export default function Navbar(props) {
               <Link to="/">{props.home}</Link>
             </li>
             <li>
-              <Link to="About">{props.about}</Link>
+              <Link to="form"> Registration From </Link>
             </li>
             <li>
               <Link to="gallery">{props.gallery}</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="todo">{props.todo}</Link>
-            </li>
+            </li> */}
             <li>
               <Link to="galleryTwo">GalleryTwo</Link>
+            </li>
+            <li>
+              <Link to="table">Form Data Table</Link>
             </li>
           </ul>
           <SearchComponent/>

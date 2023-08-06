@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   ButtonTag,
-  Hadding,
+  Heading,
   ImageWrapper,
   ImgContainer,
   Main,
@@ -57,14 +57,16 @@ function GalleryTwo(props) {
     <>
       <div className="galleryTwo">
         <Buttons setCatagoryTwo={setCatagoryTwo} catagoryTwo={catagoryTwo} />
-        <Hadding fontSize="50px">
+        <Heading fontSize="50px">
           {data.length === 0 ? (
             <span className="errors">NO IMAGE FOUND</span>
           ) : (
             catagoryTwo + " Images"
           )}
-        </Hadding>
+        </Heading>
         <ImageWrapper>
+
+
           {data.map((value) => {
             return (
               <Main key={value.id}>

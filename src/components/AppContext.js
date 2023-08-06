@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext } from "react";
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
-    const [searchData, setSearchData]=useState('')
+    const [searchData, setSearchData]=useState('');
      return (
         <AppContext.Provider
           value={{

@@ -1,12 +1,12 @@
 import { styled } from "styled-components";
   
- export const Hadding = styled.h1`
+ export const Heading = styled.h1`
    font-size: ${(props)=> props.fontSize || ""};
    color: ${(props)=> props.color || "#000"};
    text-align:${(props)=> props.align || "center"} ;
    text-transform: uppercase;
    letter-spacing: 3px;
-   margin: 2rem 0;
+   margin: ${(props)=> props.m || "2rem 0"};
  `
 export const ButtonTab = styled.button`
    background-color: ${(props)=> props.color || '#000'};

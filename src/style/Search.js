@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const Search = styled.input`
   background-color: ${(props)=> props.color || '#ffff'};
   border: 1px solid ${(props)=> props.borderColor || '#000'};
-  padding: ${(props)=>  props.padding  ||  "10px 5px"} ;
+  padding: ${(props) => (props.pad ? props.pad : "10px 5px")};
   height: fit-content;
   border-radius: 10px;
   outline: none;

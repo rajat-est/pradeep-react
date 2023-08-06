@@ -11,6 +11,8 @@ import TextEditor from "./TextEditor";
 import Footer from "./Footer";
 import  GalleryTwo  from "./GalleryTwo";
 import { AppProvider } from "./AppContext";
+import RegistrationFrom from "./RegistrationFrom";
+import RagistrationData from "./RagistrationData";
 const LazyAboutUs = lazy(() => import("./AboutUs"));
 export default function Route() {
   const Applayout = () => {
@@ -44,16 +46,18 @@ export default function Route() {
           ,
         },
         {
-          path: "todo",
-          element: <Todo />,
+          path: "table",
+          element:<RagistrationData/>
+          ,
         },
         {
-          path: "about",
-          element: (
-            <Suspense fallback={<p>Loading....</p>}>
-              <LazyAboutUs />
-            </Suspense>
-          ),
+          path: "form",
+          element:<RegistrationFrom/>,
+          // element: (
+          //   <Suspense fallback={<p>Loading....</p>}>
+          //     <LazyAboutUs/>
+          //   </Suspense>
+          // ),
           children: [
             { path: "pradeep", element: <p>this is about pradeep</p> },
             { path: "abc", element: <p>this is about abc</p> },
