@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const FormInput = styled.input`
   width: ${(props) => props.width || "100%"};
-  padding: 10px 5px;
+  padding: 10px;
   outline: none;
   box-shadow: 0px 0px 4px 0px #ddd;
   margin: 10px 0;

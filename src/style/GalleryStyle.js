@@ -5,7 +5,6 @@ import { styled } from "styled-components";
    color: ${(props)=> props.color || "#000"};
    text-align:${(props)=> props.align || "center"} ;
    text-transform: uppercase;
-   letter-spacing: 3px;
    margin: ${(props)=> props.m || "2rem 0"};
  `
 export const ButtonTab = styled.button`

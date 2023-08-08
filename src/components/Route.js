@@ -13,6 +13,7 @@ import  GalleryTwo  from "./GalleryTwo";
 import { AppProvider } from "./AppContext";
 import RegistrationFrom from "./RegistrationFrom";
 import RagistrationData from "./RagistrationData";
+import RegistrationFormik from "./RegistrationFormik";
 const LazyAboutUs = lazy(() => import("./AboutUs"));
 export default function Route() {
   const Applayout = () => {
@@ -34,6 +35,10 @@ export default function Route() {
           path: "",
           element: <TextEditor />,
           // element: <TextForm title="Enter your text below" mode={mode} />,
+        },
+        {
+          path: "formik",
+          element: <RegistrationFormik/>,
         },
         {
           path: "gallery",

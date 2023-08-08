@@ -41,6 +41,9 @@ export default function Navbar(props) {
             <li>
               <Link to="table">Form Data Table</Link>
             </li>
+            <li>
+              <Link to="formik">Formik</Link>
+            </li>
           </ul>
           <SearchComponent/>
         </nav>

@@ -6,7 +6,7 @@ function SearchComponent() {
   return (
     <>
       <SearchContainer>
-        <Search key="search-123" pad={'10px 35px 10px 5px'} autoFocus="autoFocus"  placeholder="Search..." value={searchData}  onChange={(e)=>setSearchData(e.target.value.toLowerCase())}></Search>
+        <Search key="search-123" padding='10px 35px 10px 5px' autoFocus="autoFocus"  placeholder="Search..." value={searchData}  onChange={(e)=>setSearchData(e.target.value.toLowerCase())}></Search>
         {searchData === "" ? (
           <i className="fa-solid fa-magnifying-glass"></i>
         ) : (
