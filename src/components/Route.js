@@ -9,17 +9,22 @@ import Todo from "./Todo";
 import { ToggleProvider } from "./ToggleContext";
 import TextEditor from "./TextEditor";
 import Footer from "./Footer";
-import  GalleryTwo  from "./GalleryTwo";
+import GalleryTwo from "./GalleryTwo";
 import { AppProvider } from "./AppContext";
 import RegistrationFrom from "./RegistrationFrom";
-import RagistrationData from "./RagistrationData";
+import RegistrationData from "./RegistrationData";
 import RegistrationFormik from "./RegistrationFormik";
+import UpdateForm from "./UpdateForm";
+import Login from "./Login";
+import Protected from "./Protected";
+import SignUp from "./SignUp";
+import LogOut from "./LogOut";
 const LazyAboutUs = lazy(() => import("./AboutUs"));
 export default function Route() {
   const Applayout = () => {
     return (
       <>
-        <Navbar/>
+        <Navbar />
         <Outlet />
         <Footer />
       </>
@@ -38,26 +43,36 @@ export default function Route() {
         },
         {
           path: "formik",
-          element: <RegistrationFormik/>,
+          element:<Protected><RegistrationFormik /></Protected>,
         },
         {
           path: "gallery",
-          element: <Gallery/>,
+          element:<Protected><Gallery/></Protected> ,
         },
         {
           path: "galleryTwo",
-          element:<GalleryTwo/>
+          element: <Protected><GalleryTwo/></Protected>,
           // element:<GalleryTwo catagoryTwo = {catagoryTwo} searchData={searchData}/>
-          ,
         },
         {
           path: "table",
-          element:<RagistrationData/>
-          ,
+          element: <Protected><RegistrationData/></Protected>,
+        },
+        {
+          path: "UpdateForm/:id",
+          element:<Protected><UpdateForm /></Protected> ,
+        },
+        {
+          path: "login",
+          element: <Login />,
+        },
+        {
+          path: "signUp",
+          element: <SignUp />,
         },
         {
           path: "form",
-          element:<RegistrationFrom/>,
+          element: <RegistrationFrom />,
           // element: (
           //   <Suspense fallback={<p>Loading....</p>}>
           //     <LazyAboutUs/>

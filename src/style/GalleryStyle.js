@@ -65,4 +65,5 @@ export const ButtonTag = styled.button `
    border: 1px solid transparent;
    margin-top: 12.29px;
    cursor:pointer;
+   color:${(props) => (props.color ? props.color:  '#000')} ;
  `;

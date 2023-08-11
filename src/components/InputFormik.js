@@ -16,13 +16,13 @@ const InputFormik = ({
     <>
       <label htmlFor={id}> {label}</label>
       <FormInput
-        type="text"
+        type={props.type || "text"}
         name={name}
         placeholder={props.placeholder}
         value={values}
         id={id}
         onChange={handleChange}
-        onBlur={handleBlur}
+        onBlur={handleBlur} 
        />
       {errors[name] && touched[name] && (
         <span className="errors">{errors[name]}</span>

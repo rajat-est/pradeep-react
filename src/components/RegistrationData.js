@@ -2,7 +2,8 @@ import React from "react";
 import { useValidationContext } from "./ValidationContext";
 import { Heading } from "../style/GalleryStyle";
 import DummyTable from "./DummyTable";
-const RagistrationData = () => {
+import Formiktable from "./Formiktable";
+const RegistrationData = () => {
   const { formData } = useValidationContext();
   return (
     <div className="tableMain">
@@ -34,8 +35,9 @@ const RagistrationData = () => {
         </tbody>
       </table>
       <DummyTable/>
+      <Formiktable/>
     </div>
   );
 };
 
-export default RagistrationData;
+export default RegistrationData;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // { useEffect, useState }
 import { useContext } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ToggleButton from "./ToggleBtn";
 import { ToggleContext } from "./ToggleContext";
 import useOnline from "./CheckOnline";
@@ -10,43 +10,89 @@ import logo from "../img/logo.png";
 import profile from "../img/profile.png";
 import Sticky from "./Sticky";
 import SearchComponent from "./SearchComponent";
+import useLogOut from "./LogOut";
 export default function Navbar(props) {
   const isOnline = useOnline();
+  const logout = useLogOut();
   const { isToggled } = useContext(ToggleContext);
   const [navToggle, setNavToggle] = useState(false);
   const isSticky = Sticky();
+  const sessionData = JSON.parse(sessionStorage.getItem("formData")) || {};
+  const handleLogOut = () => {
+    logout();
+  };
+
   return (
     <header className={`main_header  ${isSticky ? "sticky" : ""}`}>
       <div className="container">
         <div className="logo">
-          <img src={logo} alt="logo" />
+          <NavLink to="/">
+            <img src={logo} alt="logo" />
+          </NavLink>
         </div>
-        <nav className={`nav_bar ${navToggle ? "mobile-nav" : ""}`}>
-          <ul className="d-flex">
-            <li>
-              <Link to="/">{props.home}</Link>
-            </li>
-            <li>
-              <Link to="form"> Registration From </Link>
-            </li>
-            <li>
-              <Link to="gallery">{props.gallery}</Link>
-            </li>
-            {/* <li>
+        {sessionData.isLoggedIn === true ? (
+          <nav className={`nav_bar ${navToggle ? "mobile-nav" : ""}`}>
+            <ul className="d-flex">
+              <li>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  {props.home}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/form"
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  Registration From
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/gallery"
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  {props.gallery}
+                </NavLink>
+              </li>
+              {/* <li>
               <Link to="todo">{props.todo}</Link>
             </li> */}
-            <li>
-              <Link to="galleryTwo">GalleryTwo</Link>
-            </li>
-            <li>
-              <Link to="table">Form Data Table</Link>
-            </li>
-            <li>
-              <Link to="formik">Formik</Link>
-            </li>
-          </ul>
-          <SearchComponent/>
-        </nav>
+              <li>
+                <NavLink
+                  to="/galleryTwo"
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  GalleryTwo
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/table"
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  Form Data Table
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/formik"
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                  }
+                >
+                  Formik
+                </NavLink>
+              </li>
+            </ul>
+            <SearchComponent />
+          </nav>
+        ) : (
+          ""
+        )}
+
         <label htmlFor="check" className="mobile_menu_icon">
           <input
             type="checkbox"
@@ -58,10 +104,34 @@ export default function Navbar(props) {
           <span></span>
           <span></span>
         </label>
-        <div className="profile">
-          <img src={profile} alt="profile" />
-          <p>{isOnline ? "Kelvin" : "Login"}</p>
-        </div>
+        {sessionData.isLoggedIn === false ||
+        JSON.parse(sessionStorage.getItem("formData")) === null ? (
+          <div className="signUpLoginContainer">
+            {/* <p>{isOnline ? "Kelvin" : "Login"}</p> */}
+            <NavLink
+              to="/login"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+            >
+              Login
+            </NavLink>
+            /
+            <NavLink
+              to="/signUp"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+            >
+              SignUp
+            </NavLink>
+          </div>
+        ) : (
+          <div className="profile">
+            <img src={profile} alt="profile" />
+            <button className="btnLogOut" onClick={handleLogOut}>Log Out</button>
+          </div>
+        )}
       </div>
     </header>
   );

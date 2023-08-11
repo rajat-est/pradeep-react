@@ -9,15 +9,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .logo img {
   width: 150px;
+}
+.btnLogOut{
+  background-color: transparent;
+  color: #000;
+  border: none;
+  padding: 0;
+  outline: 0;
+  cursor: pointer;
+}
+.signUpLoginContainer{
+  display: flex;
+  align-items: center;
+}
+.main_header .active{
+  color: #ee6f37;
 }
 .profile {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
+  cursor: pointer;
 }
 .profile img {
   width: 50px;
@@ -49,7 +66,6 @@
 .main_header {
   background: #fff;
   box-shadow: 0px 1px 11px 7px #ccc;
-  padding: 10px 0;
 }
 .main_header ul li {
   list-style: none;
@@ -64,7 +80,7 @@
 }
 .main_header a {
   color: #000000;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 0.9rem;
   display: block;
   text-decoration: none;
 }
@@ -166,8 +182,9 @@ header input[type="checkbox"]:checked {
 }
 header .container {
   display: flex;
-  justify-content: space-around;
+  justify-content:space-between;
   align-items: center;
+  padding: 0 30px;
 }
 header .toggle_container {
   display: flex;

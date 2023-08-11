@@ -8,18 +8,28 @@ const initialValues = {
   lname: "",
   email: "",
   dateOfBirth: "",
-  gender: "",
+  gender: "male",
 };
 const RegistrationFormik = () => {
   const { handleChange, handleBlur, handleSubmit, values, errors,setFieldValue,isSubmitting ,touched} = useFormik({
     initialValues: initialValues,
     validationSchema: RegistrationSchemas,
     onSubmit: (values,{setSubmitting}) => {
-        setSubmitting(true)
-        setTimeout(() => {
-            setSubmitting(false)
-        }, 4000);
-      console.log(values);
+      fetch('https://crudcrud.com/api/09c17d35e99c4985994da2cf7e3fedd8/unicorns', {
+        method: 'POST',
+        body: JSON.stringify({
+          name:values.name,
+          lname: values.lname,
+          email: values.email,
+          dateOfBirth: values.dateOfBirth,
+          gender: values.gender,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
     },
   });
 
@@ -77,13 +87,14 @@ const RegistrationFormik = () => {
         <select
           name="gender"
           id="selectGender"
-          values={values.gender}
+          value={values.gender}
           onChange={handleChange}
         >
-          <option values="male">Male</option>
-          <option values="female">Female</option>
+         
+        <option value="male" >Male</option>
+        <option value="female">Female</option>
         </select>
-        <ButtonSubmit disabled={isSubmitting} bg="#fff" type="submit" values={"Submit"} />
+        <ButtonSubmit disabled={isSubmitting} bg="#fff" type="submit" value={"Submit"} />
       </div>
     </form>
   );
