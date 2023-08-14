@@ -3,33 +3,50 @@ import React from "react";
 import { ButtonSubmit } from "../style/FormInput";
 import { RegistrationSchemas } from "../Schemas/schema";
 import InputFormik from "./InputFormik";
+import { useNavigate } from "react-router-dom";
 const initialValues = {
   name: "",
-  lname: "",
+  lastName: "",
   email: "",
+  mobile: "",
   dateOfBirth: "",
   gender: "male",
 };
 const RegistrationFormik = () => {
-  const { handleChange, handleBlur, handleSubmit, values, errors,setFieldValue,isSubmitting ,touched} = useFormik({
+  const Navigate = useNavigate();
+  const {
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    values,
+    errors,
+    setFieldValue,
+    isSubmitting,
+    touched,
+  } = useFormik({
     initialValues: initialValues,
     validationSchema: RegistrationSchemas,
-    onSubmit: (values,{setSubmitting}) => {
-      fetch('https://crudcrud.com/api/09c17d35e99c4985994da2cf7e3fedd8/unicorns', {
-        method: 'POST',
-        body: JSON.stringify({
-          name:values.name,
-          lname: values.lname,
-          email: values.email,
-          dateOfBirth: values.dateOfBirth,
-          gender: values.gender,
-        }),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => console.log(json));
+    onSubmit: (values, { setSubmitting }) => {
+      try {
+        fetch("http://localhost/API/Registration.php", {
+          method: "POST",
+          body: JSON.stringify({
+            name: values.name,
+            lastName: values.lastName,
+            email: values.email,
+            mobile: values.mobile,
+            dateOfBirth: values.dateOfBirth,
+            gender: values.gender,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }).then((response) => response.json());
+        Navigate("/table");
+        // .then((json) => console.log(json));
+      } catch (Exception) {
+        console.log(Exception);
+      }
     },
   });
 
@@ -44,20 +61,19 @@ const RegistrationFormik = () => {
           values={values.name}
           errors={errors}
           handleChange={handleChange}
-          handleBlur= {handleBlur}
-          touched ={touched}
-          
+          handleBlur={handleBlur}
+          touched={touched}
         />
         <InputFormik
-          name="lname"
+          name="lastName"
           label="Last name"
           placeholder="Enter Your Last Name"
           handleChange={handleChange}
-          handleBlur= {handleBlur}
+          handleBlur={handleBlur}
           id="inputlname"
-          values={values.lname}
+          values={values.lastName}
           errors={errors}
-          touched ={touched}
+          touched={touched}
         />
         <InputFormik
           name="email"
@@ -67,9 +83,19 @@ const RegistrationFormik = () => {
           id="inputEmail"
           values={values.email}
           errors={errors}
-          handleBlur= {handleBlur}
-          touched ={touched}
-
+          handleBlur={handleBlur}
+          touched={touched}
+        />
+        <InputFormik
+          name="mobile"
+          label="Mobile"
+          placeholder="Enter Your Mobile No."
+          handleChange={handleChange}
+          id="inputBirth"
+          values={values.mobile}
+          errors={errors}
+          handleBlur={handleBlur}
+          touched={touched}
         />
         <InputFormik
           name="dateOfBirth"
@@ -79,9 +105,8 @@ const RegistrationFormik = () => {
           id="inputBirth"
           values={values.dateOfBirth}
           errors={errors}
-          handleBlur= {handleBlur}
-          touched ={touched}
-
+          handleBlur={handleBlur}
+          touched={touched}
         />
         <label> Please Select Your Genter</label>
         <select
@@ -90,11 +115,10 @@ const RegistrationFormik = () => {
           value={values.gender}
           onChange={handleChange}
         >
-         
-        <option value="male" >Male</option>
-        <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
         </select>
-        <ButtonSubmit disabled={isSubmitting} bg="#fff" type="submit" value={"Submit"} />
+        <ButtonSubmit bg="#fff" type="submit" value={"Submit"} />
       </div>
     </form>
   );

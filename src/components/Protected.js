@@ -4,7 +4,6 @@ import { LoginGlobalContext } from "./LoginContext";
 
 const Protected = ({ children }) => {
   const { login } = LoginGlobalContext();
-  console.log(login);
   const navigate = useNavigate();
   const sessionData = JSON.parse(sessionStorage.getItem("formData")) || {};
   useEffect(() => {

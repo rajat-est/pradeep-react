@@ -9,7 +9,7 @@ export const RegistrationSchemas = Yup.object().shape({
     .max(25)
     .matches(letters, "Is not in correct format")
     .required("First Name is required"),
-  lname: Yup.string()
+  lastName: Yup.string()
     .min(2)
     .max(25)
     .matches(letters, "Is not in correct format")
@@ -22,4 +22,7 @@ export const RegistrationSchemas = Yup.object().shape({
     .matches(new RegExp(dateOfBirth), "Is not in correct format")
     .required("Date of Birth is required")
     .nullable(),
+    mobile:Yup.string()
+    .matches(/^\d{10}$/, 'Phone number must be a 10-digit number')
+    .required('Phone number is required'),
 });

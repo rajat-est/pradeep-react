@@ -45,7 +45,6 @@ const DummyTable = () => {
         </thead>
         <tbody>
           {dummyData.map((value, index) => {
-            console.log(value);
             return (
               <tr key={value.id}>
                 <td>{value.id}</td>
@@ -60,7 +59,7 @@ const DummyTable = () => {
                 <td>{value.phone}</td>
                 <td>{value.email}</td>
                 <td onClick={() => UpdateData(value.id)}>
-                  <TableBtn bg="#FFFF00" textColor='#000'>Update</TableBtn>
+                  <TableBtn bg="#FFFF00" textcolor='#000'>Update</TableBtn>
                 </td>
                 <td onClick={() => DeleteData(value.id)}>
                   <TableBtn>Delete</TableBtn>

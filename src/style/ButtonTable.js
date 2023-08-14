@@ -7,7 +7,7 @@ export const TableBtn = styled.button`
   outline: none;
   font-size: 16px;
   font-weight: bold;
-  color:  ${(props)=> props.textColor || '#fff'};
+  color:  ${(props)=> props.textcolor || '#fff'};
   border-radius: 5px;
   cursor: pointer;
 `
