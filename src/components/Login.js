@@ -5,32 +5,53 @@ import InputFormik from "./InputFormik";
 import { LoginSchema } from "../Schemas/LoginSchema";
 import { ButtonSubmit } from "../style/FormInput";
 import { Link, useNavigate } from "react-router-dom";
+import API from "./axios/Axios";
+
 const initialValues = {
   email: "",
   password: "",
 };
 
 const SignUp = () => {
-const [err,setErr] = useState('')
+  const [err, setErr] = useState();
   const navigate = useNavigate();
   const { handleChange, handleBlur, handleSubmit, values, errors, touched } =
     useFormik({
       initialValues: initialValues,
       validationSchema: LoginSchema,
-      onSubmit: (formValues) => {
-        const sessionData =
-          JSON.parse(sessionStorage.getItem("formData")) || {};
-        if (
-          formValues.email === sessionData.email &&
-          formValues.password === sessionData.password
-        ) {
-          const updateSession = { ...sessionData, isLoggedIn: true };
-          sessionStorage.setItem("formData", JSON.stringify(updateSession));
-          navigate('/');
-          setErr('')
-        }else{
-           setErr("Your password and email don't match")
+      onSubmit: async(formValues) => {
+        try {
+        const response =  await API.post("/login.php", {
+            email: values.email,
+            password: values.password,
+          });
+          if (response.data.success === false) {
+            setErr(response.data.errors)
+          }else{
+            localStorage.setItem("token", response.data.token);
+            setErr('')
+          }
+           navigate("/");
+        } catch (error) {
+          console.log(error);
         }
+
+        // this is session login without using database
+
+
+        // const sessionData =
+        //   JSON.parse(sessionStorage.getItem("formData")) || {};
+        // if (
+        //   formValues.email === sessionData.email &&
+        //   formValues.password === sessionData.password
+        // ) {
+        //   const updateSession = { ...sessionData, isLoggedIn: true };
+        //   sessionStorage.setItem("formData", JSON.stringify(updateSession));
+        //   navigate("/");
+        //   setErr("");
+        // } else {
+        //   setErr("Your password and email don't match");
+        // }
       },
     });
   return (
@@ -64,8 +85,10 @@ const [err,setErr] = useState('')
           />
           <ButtonSubmit bg="#fff" type="submit" value={"Login"} />
           <p className="errors">{err}</p>
-          <br/>
-          <p>If you don't have an Account  <Link to='/signUp'>Sign Up</Link></p>
+          <br />
+          <p>
+            If you don't have an Account <Link to="/signUp">Sign Up</Link>
+          </p>
         </div>
       </form>
     </>

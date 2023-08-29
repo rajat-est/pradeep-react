@@ -16,9 +16,8 @@ import RegistrationData from "./RegistrationData";
 import RegistrationFormik from "./RegistrationFormik";
 import UpdateForm from "./UpdateForm";
 import Login from "./Login";
-import Protected from "./Protected";
+import Protected ,{PublicRoute} from "./Protected";
 import SignUp from "./SignUp";
-import LogOut from "./LogOut";
 const LazyAboutUs = lazy(() => import("./AboutUs"));
 export default function Route() {
   const Applayout = () => {
@@ -51,7 +50,7 @@ export default function Route() {
         },
         {
           path: "galleryTwo",
-          element: <Protected><GalleryTwo/></Protected>,
+          element:<Protected><GalleryTwo/></Protected>,
           // element:<GalleryTwo catagoryTwo = {catagoryTwo} searchData={searchData}/>
         },
         {
@@ -64,11 +63,11 @@ export default function Route() {
         },
         {
           path: "login",
-          element: <Login />,
+          element: <PublicRoute><Login /></PublicRoute> ,
         },
         {
           path: "signUp",
-          element: <SignUp />,
+          element:<PublicRoute><SignUp /></PublicRoute> ,
         },
         {
           path: "form",
